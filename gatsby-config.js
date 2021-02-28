@@ -10,5 +10,14 @@ module.exports = {
     title: `Title`,
     author: `Him`,
   },
-  plugins: [],
+  plugins: [
+    {
+      resolve:`gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/posts/`,
+      }
+    },
+    `gatsby-transformer-remark`
+  ],
 }
