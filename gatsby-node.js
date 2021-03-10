@@ -22,6 +22,7 @@ module.exports.createPages = async ({graphql,actions}) => {
     //1. Get blog path to template
 
     const blogTemplate = path.resolve('./src/templates/blog.js')
+    const blogTemplate2 = path.resolve('./src/templates/blog2.js')
 
     //2. Get Markdown data
 
@@ -36,6 +37,13 @@ module.exports.createPages = async ({graphql,actions}) => {
                     }
                 }
             }
+            allContentfulBlogPost {
+                edges {
+                    node {
+                        slug
+                    }
+                }
+            }
         }
     `)
 
@@ -47,6 +55,18 @@ module.exports.createPages = async ({graphql,actions}) => {
             path:`/blog/${edge.node.fields.slug}`,
             context: {
                 slug: edge.node.fields.slug
+            }
+        })
+    })
+
+    //3. Create new pages from contentful
+    res.data.allContentfulBlogPost.edges.map(edge => {
+        
+        createPage({
+            component: blogTemplate2, //This is the path we want to use for a template
+            path:`/blog/${edge.node.slug}`,
+            context: {
+                slug: edge.node.slug
             }
         })
     })

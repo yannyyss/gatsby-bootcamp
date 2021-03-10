@@ -4,13 +4,18 @@
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: `Title`,
+    title: `Full-Stack Bootcamp`,
     author: `Him`,
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     {
       resolve:`gatsby-source-filesystem`,
       options: {
@@ -18,6 +23,13 @@ module.exports = {
         path: `${__dirname}/src/posts/`,
       }
     },
-    `gatsby-transformer-remark`
+    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+      }
+    },
   ],
 }
