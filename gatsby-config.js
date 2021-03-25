@@ -12,7 +12,7 @@ module.exports = {
   /* Your site config here */
   siteMetadata: {
     title: `Full-Stack Bootcamp`,
-    author: `Him`,
+    author: `Author`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -31,5 +31,6 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
       }
     },
+    `gatsby-plugin-sass`
   ],
 }

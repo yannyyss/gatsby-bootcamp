@@ -16,9 +16,11 @@
   "dependencies": {
     "gatsby": "^2.26.1",
     "gatsby-plugin-react-helmet": "^4.0.0",
+    "gatsby-plugin-sass": "^4.0.2",
     "gatsby-source-contentful": "^5.0.0",
     "gatsby-source-filesystem": "^2.11.1",
     "gatsby-transformer-remark": "^2.16.1",
+    "rbx": "^2.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0"
