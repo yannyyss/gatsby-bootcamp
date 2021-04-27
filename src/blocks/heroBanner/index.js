@@ -1,22 +1,15 @@
 import React from 'react'
 import { Generic, Hero, Container, Title, Image } from 'rbx'
-
+import './_styles.scss'
 
 const HeroBanner = ({ title, content, image}) => {
-    return (
-        <Generic>    
-            <Hero size="fullheight" color={"success"}>
-                <Hero.Body>
-                    <Container>
-                        <Title>{title}</Title>
-                        <Title as="p" subtitle>{content}</Title>
-                        <Image.Container size={128}>
-                            <Image src={image} />
-                        </Image.Container>
-                    </Container>
-                </Hero.Body>
-            </Hero>
-        </Generic>
+    return ( 
+        <Hero size="fullheight" color={"success"} className='hero-banner' style={{backgroundImage: `url(${image})`}}>
+            <Hero.Body>
+                <Title>{title}</Title>
+                <Title as="p" subtitle>{content}</Title>
+            </Hero.Body>
+        </Hero>
     )
 }
 

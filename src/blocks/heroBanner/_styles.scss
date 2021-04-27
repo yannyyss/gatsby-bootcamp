@@ -1,0 +1,13 @@
+.hero-banner {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 350px;
+    .hero-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        padding: 50px;
+        color: #000;
+    }
+}
